@@ -4,13 +4,11 @@ import com.sparta.post.dto.PostRequestDto;
 import com.sparta.post.dto.PostResponseDto;
 import com.sparta.post.entity.Post;
 import com.sparta.post.repository.PostRepository;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,7 +28,7 @@ public class PostService {
     @Transactional //게시글 등록
     public Post postSave(PostRequestDto requestDto) {
         Post post = new Post(requestDto); //post객체를 새로 만든다.
-        return postRepository.save(post); //repository에 저장 할 수 있게 한다.
+        return postRepository.save(post); //DateBase에 저장한다.
     }
 
     // 비밀번호 일치여부를 판단하는 메서드입니다 파라미터로 게시글의 아이디를 받는다.

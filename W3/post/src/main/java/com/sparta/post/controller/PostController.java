@@ -25,14 +25,13 @@ public class PostController {
         return allPost;
     }
 
-    //게시글 작성,같은 주소라도 방식(Post타입)이 다름을 구분
+    //게시글 작성,같은 주소라도
+    // 방식(Post타입)이 다름을 구분
     @PostMapping("/api/posts")
-    //requestDto는 생성요청의 의미
-    //@RequestBody로 정보를 보내겠다.
+    // @RequestBody로 정보를 보내겠다.
     public Post creatPost(@RequestBody PostRequestDto requestDto) {
-        Post post = new Post(requestDto); //post를 객체화 시켜준다
-        //JPA를 이용하여 DB에 저장, 그 결과 반환
-        return postRepository.save(post);
+        // requestDto타입으로 postService의 postSave메서드로 넘어간다
+        return postService.postSave(requestDto);
     }
 
     //게시글 상세 조회
